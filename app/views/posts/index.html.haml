@@ -1,0 +1,10 @@
+- @posts.each do |post|
+  %h2= post.title
+  %h4= truncate(post.content, length: 50)
+  %p
+    Published
+    = time_ago_in_words(post.created_at)
+    ago.
+  %br/
+
+= link_to "New Post", new_post_path
