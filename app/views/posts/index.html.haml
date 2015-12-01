@@ -1,11 +1,10 @@
-- @posts.each do |post|
-  %h2= link_to post.title, post
-  %h4= truncate(post.content, length: 50)
-  %p
-    Published
-    = time_ago_in_words(post.created_at)
-    ago by
-    = post.user.email
-  %br/
-
-= link_to "New Post", new_post_path
+#posts
+  - @posts.each do |post|
+    .post
+      %h2.title= link_to post.title, post
+      %h4= truncate(post.content, length: 50)
+      %p.date
+        Published
+        = time_ago_in_words(post.created_at)
+        ago by
+        = post.user.email
